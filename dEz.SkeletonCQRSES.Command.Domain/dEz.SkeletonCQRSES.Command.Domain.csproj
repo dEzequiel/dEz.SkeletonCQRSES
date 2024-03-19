@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\dEz.SkeletonCQRSES.ES.Core.csproj" />
+    <ProjectReference Include="..\dEz.SkeletonCQRSES.Shared\dEz.SkeletonCQRSES.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
