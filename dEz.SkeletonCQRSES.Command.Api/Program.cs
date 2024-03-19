@@ -1,5 +1,8 @@
+using dEz.SkeletonCQRSES.Command.Infrastructure;
 using dEz.SkeletonCQRSES.Command.Infrastructure.Dispatchers;
+using dEz.SkeletonCQRSES.Command.Infrastructure.Repositories;
 using dEz.SkeletonCQRSES.ES.Core;
+using dEz.SkeletonCQRSES.ES.Core.Domain;
 using dEz.SkeletonCQRSES.ES.Core.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICommandDispatcher, CommandDispatcher>();
+
+/// Path for configuration.
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddJsonFile($"appsettings.Development.json", true, true);
+
+// Mongo database.
+builder.Services.Configure<MongoSettings>(options => builder.Configuration.GetSection("MongoSettings").Bind(options));
+
+// Repositories.
+builder.Services.AddScoped<IEventStoreRepository, EventStoreRepository>();
 
 var app = builder.Build();
 

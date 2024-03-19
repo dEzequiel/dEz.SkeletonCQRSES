@@ -1,5 +1,4 @@
-﻿using dEz.SkeletonCQRSES.Core.Domain;
-using dEz.SkeletonCQRSES.ES.Core.Domain;
+﻿using dEz.SkeletonCQRSES.ES.Core.Domain;
 using dEz.SkeletonCQRSES.Shared.Events;
 using System;
 using System.Collections.Generic;
