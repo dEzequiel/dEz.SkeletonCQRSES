@@ -2,6 +2,7 @@
 using dEz.SkeletonCQRSES.ES.Core.Events;
 using dEz.SkeletonCQRSES.ES.Core.Exceptions;
 using dEz.SkeletonCQRSES.ES.Core.Infrastructure;
+using dEz.SkeletonCQRSES.ES.Core.Producers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,22 +14,16 @@ namespace dEz.SkeletonCQRSES.Command.Infrastructure.Services
 {
     public class EventStore : IEventStore
     {
-        //private readonly IEventProducer _eventProducer;
+        private readonly IEventProducer _eventProducer;
         private readonly IEventStoreRepository _eventStoreRepository;
-        //private readonly ILoggerManager _logger;
 
-        //public EventStore(IEventProducer eventProducer, IEventStoreRepository eventStoreRepository, ILoggerManager logger)
-        //{
-        //    _eventStoreRepository = eventStoreRepository;
-        //    _logger = logger;
-        //    _eventProducer = eventProducer;
-        //}
-
-        public EventStore(IEventStoreRepository eventStoreRepository)
+        public EventStore(IEventProducer eventProducer, IEventStoreRepository eventStoreRepository)
         {
             _eventStoreRepository = eventStoreRepository;
+            _eventProducer = eventProducer;
         }
 
+        
         /// <inheritdoc cref="IEventStore"/>
         public async Task<IEnumerable<BaseEvent>> GetEventsAsync(Guid aggregateId)
         {
@@ -70,7 +65,7 @@ namespace dEz.SkeletonCQRSES.Command.Infrastructure.Services
                 await _eventStoreRepository.SaveAsync(eventModel);
 
                 var topic = Environment.GetEnvironmentVariable("KAFKA_TOPIC");
-                //await _eventProducer.ProduceAsync(topic, @event);
+                await _eventProducer.ProduceAsync(topic, @event);
             }
         }
 
