@@ -3,19 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES", "dEz.SkeletonCQRSES\dEz.SkeletonCQRSES.csproj", "{8213585B-32E8-4AEF-B134-FE1E046318D1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command", "Command", "{6E013047-E8BE-402C-9D3E-AD24EF09AD9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Query", "Query", "{A220C1FD-6435-481D-A702-7BA86D4A0BFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventSourcing", "EventSourcing", "{5185155D-400C-4489-A3EA-F88A0A3C2210}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8213585B-32E8-4AEF-B134-FE1E046318D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8213585B-32E8-4AEF-B134-FE1E046318D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8213585B-32E8-4AEF-B134-FE1E046318D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8213585B-32E8-4AEF-B134-FE1E046318D1}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
