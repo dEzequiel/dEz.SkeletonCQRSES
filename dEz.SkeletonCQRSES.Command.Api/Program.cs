@@ -1,8 +1,12 @@
+using dEz.SkeletonCQRSES.Command.Domain.Aggregates;
 using dEz.SkeletonCQRSES.Command.Infrastructure;
 using dEz.SkeletonCQRSES.Command.Infrastructure.Dispatchers;
+using dEz.SkeletonCQRSES.Command.Infrastructure.Handlers;
 using dEz.SkeletonCQRSES.Command.Infrastructure.Repositories;
+using dEz.SkeletonCQRSES.Command.Infrastructure.Services;
 using dEz.SkeletonCQRSES.ES.Core;
 using dEz.SkeletonCQRSES.ES.Core.Domain;
+using dEz.SkeletonCQRSES.ES.Core.Handlers;
 using dEz.SkeletonCQRSES.ES.Core.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +30,12 @@ builder.Services.Configure<MongoSettings>(options => builder.Configuration.GetSe
 
 // Repositories.
 builder.Services.AddScoped<IEventStoreRepository, EventStoreRepository>();
+
+// Services.
+builder.Services.AddScoped<IEventStore, EventStore>();
+
+// Handlers
+builder.Services.AddScoped<IEventSourcingHandler<CompanyAggregate>, EventSourcingHandler>();
 
 var app = builder.Build();
 

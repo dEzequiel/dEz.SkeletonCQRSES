@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\dEz.SkeletonCQRSES.ES.Core.csproj" />
+    <ProjectReference Include="..\dEz.SkeletonCQRSES.Command.Domain\dEz.SkeletonCQRSES.Command.Domain.csproj" />
   </ItemGroup>
 
 </Project>
