@@ -1,3 +1,4 @@
+using dEz.SkeletonCQRSES.Command.Api.Commands;
 using dEz.SkeletonCQRSES.Command.Domain.Aggregates;
 using dEz.SkeletonCQRSES.Command.Infrastructure;
 using dEz.SkeletonCQRSES.Command.Infrastructure.Dispatchers;
@@ -18,7 +19,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ICommandDispatcher, CommandDispatcher>();
 
 /// Path for configuration.
 builder.Configuration
@@ -28,14 +28,17 @@ builder.Configuration
 // Mongo database.
 builder.Services.Configure<MongoSettings>(options => builder.Configuration.GetSection("MongoSettings").Bind(options));
 
-// Repositories.
 builder.Services.AddScoped<IEventStoreRepository, EventStoreRepository>();
-
-// Services.
 builder.Services.AddScoped<IEventStore, EventStore>();
-
-// Handlers
 builder.Services.AddScoped<IEventSourcingHandler<CompanyAggregate>, EventSourcingHandler>();
+
+builder.Services.AddScoped<ICommandHandler,CommandHandler>();
+var commandHandler = builder.Services.BuildServiceProvider().GetRequiredService<ICommandHandler>();
+var dispatcher = new CommandDispatcher();
+dispatcher.RegisterHandler<AddCompanyCommand>(commandHandler.HandleAsync);
+dispatcher.RegisterHandler<DeleteCompanyCommand>(commandHandler.HandleAsync);
+dispatcher.RegisterHandler<UpdateCompanyCommand>(commandHandler.HandleAsync);
+builder.Services.AddSingleton<ICommandDispatcher>(_ => dispatcher);
 
 var app = builder.Build();
 
