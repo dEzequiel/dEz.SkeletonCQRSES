@@ -20,11 +20,22 @@
       }
     },
     "IIS Express": {
-      "commandName": "IISExpress",
+        "commandName": "IISExpress",
+        "launchBrowser": true,
+        "launchUrl": "swagger",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+    },
+    "dev": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:42096",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "KAFKA_TOPIC": "ExampleEvent"
       }
     }
   }
