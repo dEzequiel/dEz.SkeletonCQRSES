@@ -23,7 +23,7 @@ namespace dEz.SkeletonCQRSES.Command.Api.Commands
         public async Task HandleAsync(DeleteCompanyCommand command)
         {
             var aggregate = await _eventSourcingHandler.GetByIdAsync(command.Id);
-            aggregate.DeleteCompany(command.CompanyId);
+            aggregate.DeleteCompany(command.Id);
 
             await _eventSourcingHandler.SaveAsync(aggregate);
         }

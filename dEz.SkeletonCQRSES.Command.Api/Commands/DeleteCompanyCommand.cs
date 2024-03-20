@@ -7,6 +7,5 @@ namespace dEz.SkeletonCQRSES.Command.Api.Commands
     /// </summary>
     public class DeleteCompanyCommand : BaseCommand
     {
-        public Guid CompanyId { get; set; }
     }
 }

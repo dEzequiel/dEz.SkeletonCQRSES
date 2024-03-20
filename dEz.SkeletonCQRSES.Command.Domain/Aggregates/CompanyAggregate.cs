@@ -59,7 +59,6 @@ namespace dEz.SkeletonCQRSES.Command.Domain.Aggregates
             RaiseEvent(new CompanyRemovedEvent
             {
                 Id = _id,
-                CompanyId = companyId
             });
         }
 

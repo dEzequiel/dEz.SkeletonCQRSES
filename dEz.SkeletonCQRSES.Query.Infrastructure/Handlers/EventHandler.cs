@@ -23,5 +23,10 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Handlers
             var company = new CompanyForAdd(@event.Id, @event.Name, @event.Address, @event.Country);
             await _service.AddAsync(company);
         }
+
+        public async Task On(CompanyRemovedEvent @event)
+        {
+            await _service.DeleteAsync(@event.Id);
+        }
     }
 }
