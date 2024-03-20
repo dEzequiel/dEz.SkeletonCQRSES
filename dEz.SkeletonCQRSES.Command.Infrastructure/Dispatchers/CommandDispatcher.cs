@@ -17,17 +17,18 @@ namespace dEz.SkeletonCQRSES.Command.Infrastructure.Dispatchers
         private readonly Dictionary<Type, Func<BaseCommand, Task>> _handlers = new();
 
         /// <inheritdoc cref="ICommandDispatcher"/>
-        public void RegisterHandler<T>(Func<T, Task> handler) where T : BaseCommand
+        public void RegisterHandler<TCommand>(Func<TCommand, Task> handler) where TCommand : BaseCommand
         {
-            if (_handlers.ContainsKey(typeof(T)))
+            if (_handlers.ContainsKey(typeof(TCommand)))
             {
-                throw new IndexOutOfRangeException("You cannot register the same command handler twice");
+                throw new IndexOutOfRangeException("You cannot register the same query handler twice");
             }
 
-            _handlers.Add(typeof(T), x => handler((T)x));
+            _handlers.Add(typeof(TCommand), x => handler((TCommand)x));
         }
 
         /// <inheritdoc cref="ICommandDispatcher"/>
+        /// <summary>From the registered handlers determining its type calls handler function for this type.</summary>
         public async Task SendAsync(BaseCommand command)
         {
             if (_handlers.TryGetValue(command.GetType(), out Func<BaseCommand, Task> handler))
