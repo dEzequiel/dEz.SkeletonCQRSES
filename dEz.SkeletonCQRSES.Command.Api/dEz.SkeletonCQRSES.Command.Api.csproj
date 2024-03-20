@@ -13,6 +13,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Core\dEz.SkeletonCQRSES.ES.Core.csproj" />
 		<ProjectReference Include="..\dEz.SkeletonCQRSES.Command.Infrastructure\dEz.SkeletonCQRSES.Command.Infrastructure.csproj" />
+		<ProjectReference Include="..\dEz.SkeletonCQRSES.Query.Domain\dEz.SkeletonCQRSES.Query.Domain.csproj" />
+		<ProjectReference Include="..\dEz.SkeletonCQRSES.Query.Infrastructure\dEz.SkeletonCQRSES.Query.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>
