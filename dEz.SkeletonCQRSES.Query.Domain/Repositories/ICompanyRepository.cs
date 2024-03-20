@@ -20,13 +20,6 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Repositories
         Task<IEnumerable<Company>> GetAllAsync(bool trackChanges);
 
         /// <summary>
-        /// Asynchronously retrieves all companies by its ID.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation, returning an enumerable collection of
-        /// <see cref="Company"/>.</returns>
-        Task<IEnumerable<Company>> GetAllByIdAsync(IEnumerable<Guid> ids, bool trackChanges);
-
-        /// <summary>
         /// Asynchronously retrieves a company by its ID.
         /// </summary>
         /// <param name="id">The unique identifier of the company to retrieve.</param>
@@ -45,6 +38,6 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Repositories
         /// <summary>
         /// Delete company.
         /// </summary>
-        void DeleteAsync(Company company);
+        Task DeleteAsync(Company company);
     }
 }
