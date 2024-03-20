@@ -35,6 +35,8 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Consumers
             return typeDiscriminator switch
             {
                 nameof(CompanyCreatedEvent) => JsonSerializer.Deserialize<CompanyCreatedEvent>(json, options),
+                nameof(CompanyUpdatedEvent) => JsonSerializer.Deserialize<CompanyUpdatedEvent>(json, options),
+                nameof(CompanyRemovedEvent) => JsonSerializer.Deserialize<CompanyRemovedEvent>(json, options),
                 _ => throw new JsonException($"{typeDiscriminator} is not supported yet!")
             };
         }

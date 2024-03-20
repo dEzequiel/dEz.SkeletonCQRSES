@@ -34,6 +34,8 @@ builder.Services.Configure<MongoSettings>(options => builder.Configuration.GetSe
 
 BsonClassMap.RegisterClassMap<BaseEvent>();
 BsonClassMap.RegisterClassMap<CompanyCreatedEvent>();
+BsonClassMap.RegisterClassMap<CompanyRemovedEvent>();
+BsonClassMap.RegisterClassMap<CompanyUpdatedEvent>();
 
 builder.Services.AddScoped<IEventStoreRepository, EventStoreRepository>();
 builder.Services.AddScoped<IEventStore, EventStore>();
