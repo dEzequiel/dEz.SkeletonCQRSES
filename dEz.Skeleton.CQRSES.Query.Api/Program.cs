@@ -1,5 +1,4 @@
 using Confluent.Kafka;
-using dEz.SkeletonCQRSES.ES.Core.Consumers;
 using dEz.SkeletonCQRSES.Query.Abstraction;
 using dEz.SkeletonCQRSES.Query.Domain.Repositories;
 using dEz.SkeletonCQRSES.Query.Domain.Services;
@@ -30,8 +29,7 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<IEventHandler, dEz.SkeletonCQRSES.Query.Infrastructure.Handlers.EventHandler>();
 
 builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection(nameof(ConsumerConfig)));
-builder.Services.AddScoped<IEventConsumer, EventConsumer>();
-
+// EVENT CONSUMER
 
 builder.Services.AddHostedService<ConsumerHostedService>();
 

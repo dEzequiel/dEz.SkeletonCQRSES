@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\dEz.SkeletonCQRSES.ES.Core.csproj" />
     <ProjectReference Include="..\dEz.SkeletonCQRSES.Shared\dEz.SkeletonCQRSES.Shared.csproj" />
   </ItemGroup>
 

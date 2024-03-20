@@ -9,42 +9,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Query", "Query", "{A220C1FD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventSourcing", "EventSourcing", "{5185155D-400C-4489-A3EA-F88A0A3C2210}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.ES.Core", "Core\dEz.SkeletonCQRSES.ES.Core.csproj", "{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Command.Api", "dEz.SkeletonCQRSES.Command.Api\dEz.SkeletonCQRSES.Command.Api.csproj", "{1F3C4B95-144D-49A1-A6A0-5D0BFE945905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Command.Api", "dEz.SkeletonCQRSES.Command.Api\dEz.SkeletonCQRSES.Command.Api.csproj", "{1F3C4B95-144D-49A1-A6A0-5D0BFE945905}"
 	ProjectSection(ProjectDependencies) = postProject
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4} = {8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}
+		{006A6372-84FA-477D-9181-E735BD2ACA08} = {006A6372-84FA-477D-9181-E735BD2ACA08}
 		{D10F832B-3E2D-4689-AD15-B3EB1DB16DDE} = {D10F832B-3E2D-4689-AD15-B3EB1DB16DDE}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Command.Infrastructure", "dEz.SkeletonCQRSES.Command.Infrastructure\dEz.SkeletonCQRSES.Command.Infrastructure.csproj", "{D10F832B-3E2D-4689-AD15-B3EB1DB16DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Command.Infrastructure", "dEz.SkeletonCQRSES.Command.Infrastructure\dEz.SkeletonCQRSES.Command.Infrastructure.csproj", "{D10F832B-3E2D-4689-AD15-B3EB1DB16DDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Command.Domain", "dEz.SkeletonCQRSES.Command.Domain\dEz.SkeletonCQRSES.Command.Domain.csproj", "{492BDE28-9A7B-4190-BA2D-7181D2C387E7}"
 	ProjectSection(ProjectDependencies) = postProject
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4} = {8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}
+		{006A6372-84FA-477D-9181-E735BD2ACA08} = {006A6372-84FA-477D-9181-E735BD2ACA08}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Command.Domain", "dEz.SkeletonCQRSES.Command.Domain\dEz.SkeletonCQRSES.Command.Domain.csproj", "{492BDE28-9A7B-4190-BA2D-7181D2C387E7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Shared", "dEz.SkeletonCQRSES.Shared\dEz.SkeletonCQRSES.Shared.csproj", "{86360A67-699C-49F1-9E93-02BDD8234944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Shared", "dEz.SkeletonCQRSES.Shared\dEz.SkeletonCQRSES.Shared.csproj", "{86360A67-699C-49F1-9E93-02BDD8234944}"
 	ProjectSection(ProjectDependencies) = postProject
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4} = {8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}
+		{006A6372-84FA-477D-9181-E735BD2ACA08} = {006A6372-84FA-477D-9181-E735BD2ACA08}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Query.Domain", "dEz.SkeletonCQRSES.Query.Domain\dEz.SkeletonCQRSES.Query.Domain.csproj", "{21296C1B-7501-49A8-AD1E-2B474FAC1986}"
-	ProjectSection(ProjectDependencies) = postProject
-		{86360A67-699C-49F1-9E93-02BDD8234944} = {86360A67-699C-49F1-9E93-02BDD8234944}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Query.Abstraction", "dEz.SkeletonCQRSES.Query.Abstraction\dEz.SkeletonCQRSES.Query.Abstraction.csproj", "{E1CC3A5C-C7E2-4A99-A356-5737CC714AF4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Query.Infrastructure", "dEz.SkeletonCQRSES.Query.Infrastructure\dEz.SkeletonCQRSES.Query.Infrastructure.csproj", "{5FDB9677-C59D-4FBF-8A7E-663007B78AED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Query.Domain", "dEz.SkeletonCQRSES.Query.Domain\dEz.SkeletonCQRSES.Query.Domain.csproj", "{21296C1B-7501-49A8-AD1E-2B474FAC1986}"
 	ProjectSection(ProjectDependencies) = postProject
 		{86360A67-699C-49F1-9E93-02BDD8234944} = {86360A67-699C-49F1-9E93-02BDD8234944}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.Skeleton.CQRSES.Query.Api", "dEz.Skeleton.CQRSES.Api\dEz.Skeleton.CQRSES.Query.Api.csproj", "{75BC82D4-414E-44BC-A725-859B775F66E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Query.Abstraction", "dEz.SkeletonCQRSES.Query.Abstraction\dEz.SkeletonCQRSES.Query.Abstraction.csproj", "{E1CC3A5C-C7E2-4A99-A356-5737CC714AF4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.Query.Infrastructure", "dEz.SkeletonCQRSES.Query.Infrastructure\dEz.SkeletonCQRSES.Query.Infrastructure.csproj", "{5FDB9677-C59D-4FBF-8A7E-663007B78AED}"
 	ProjectSection(ProjectDependencies) = postProject
-		{5FDB9677-C59D-4FBF-8A7E-663007B78AED} = {5FDB9677-C59D-4FBF-8A7E-663007B78AED}
+		{86360A67-699C-49F1-9E93-02BDD8234944} = {86360A67-699C-49F1-9E93-02BDD8234944}
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.SkeletonCQRSES.ES.Core", "dEz.Skeleton.CQRSES.ES.Core\dEz.SkeletonCQRSES.ES.Core.csproj", "{006A6372-84FA-477D-9181-E735BD2ACA08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dEz.Skeleton.CQRSES.Query.Api", "dEz.Skeleton.CQRSES.Query.Api\dEz.Skeleton.CQRSES.Query.Api.csproj", "{23177F7F-055B-48DE-9C22-8B7AE292AB13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,10 +49,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F3C4B95-144D-49A1-A6A0-5D0BFE945905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F3C4B95-144D-49A1-A6A0-5D0BFE945905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F3C4B95-144D-49A1-A6A0-5D0BFE945905}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -84,23 +77,27 @@ Global
 		{5FDB9677-C59D-4FBF-8A7E-663007B78AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FDB9677-C59D-4FBF-8A7E-663007B78AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FDB9677-C59D-4FBF-8A7E-663007B78AED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75BC82D4-414E-44BC-A725-859B775F66E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75BC82D4-414E-44BC-A725-859B775F66E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75BC82D4-414E-44BC-A725-859B775F66E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75BC82D4-414E-44BC-A725-859B775F66E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{006A6372-84FA-477D-9181-E735BD2ACA08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006A6372-84FA-477D-9181-E735BD2ACA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006A6372-84FA-477D-9181-E735BD2ACA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006A6372-84FA-477D-9181-E735BD2ACA08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23177F7F-055B-48DE-9C22-8B7AE292AB13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23177F7F-055B-48DE-9C22-8B7AE292AB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23177F7F-055B-48DE-9C22-8B7AE292AB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23177F7F-055B-48DE-9C22-8B7AE292AB13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8850B1F4-0BD2-42CF-8803-4E48A50B2DA4} = {5185155D-400C-4489-A3EA-F88A0A3C2210}
 		{1F3C4B95-144D-49A1-A6A0-5D0BFE945905} = {6E013047-E8BE-402C-9D3E-AD24EF09AD9A}
 		{D10F832B-3E2D-4689-AD15-B3EB1DB16DDE} = {6E013047-E8BE-402C-9D3E-AD24EF09AD9A}
 		{492BDE28-9A7B-4190-BA2D-7181D2C387E7} = {6E013047-E8BE-402C-9D3E-AD24EF09AD9A}
 		{21296C1B-7501-49A8-AD1E-2B474FAC1986} = {A220C1FD-6435-481D-A702-7BA86D4A0BFB}
 		{E1CC3A5C-C7E2-4A99-A356-5737CC714AF4} = {A220C1FD-6435-481D-A702-7BA86D4A0BFB}
 		{5FDB9677-C59D-4FBF-8A7E-663007B78AED} = {A220C1FD-6435-481D-A702-7BA86D4A0BFB}
-		{75BC82D4-414E-44BC-A725-859B775F66E1} = {A220C1FD-6435-481D-A702-7BA86D4A0BFB}
+		{006A6372-84FA-477D-9181-E735BD2ACA08} = {5185155D-400C-4489-A3EA-F88A0A3C2210}
+		{23177F7F-055B-48DE-9C22-8B7AE292AB13} = {A220C1FD-6435-481D-A702-7BA86D4A0BFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62021016-85C3-4225-AF5C-C9EB4EEE112D}
