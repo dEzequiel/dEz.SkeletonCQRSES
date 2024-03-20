@@ -1,8 +1,10 @@
 using Confluent.Kafka;
+using dEz.SkeletonCQRSES.ES.Core.Consumers;
 using dEz.SkeletonCQRSES.Query.Abstraction;
 using dEz.SkeletonCQRSES.Query.Domain.Repositories;
 using dEz.SkeletonCQRSES.Query.Domain.Services;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Consumers;
+using dEz.SkeletonCQRSES.Query.Infrastructure.DataAccess;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Handlers;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Repositories;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Services;
@@ -19,8 +21,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
-builder.Services.AddDbContext<DatabaseContext>(opts =>
-                opts.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnectionString")));
+
+Action<DbContextOptionsBuilder> configureDbContext = (o => o.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnectionString")));
+builder.Services.AddDbContext<DatabaseContext>(configureDbContext);
+builder.Services.AddSingleton<DatabaseContextFactory>(new DatabaseContextFactory(configureDbContext));
 
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
@@ -29,7 +33,7 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<IEventHandler, dEz.SkeletonCQRSES.Query.Infrastructure.Handlers.EventHandler>();
 
 builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection(nameof(ConsumerConfig)));
-// EVENT CONSUMER
+builder.Services.AddScoped<IEventConsumer, EventConsumer>();
 
 builder.Services.AddHostedService<ConsumerHostedService>();
 

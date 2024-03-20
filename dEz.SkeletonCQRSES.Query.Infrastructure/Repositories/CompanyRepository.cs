@@ -1,18 +1,21 @@
 ﻿using dEz.SkeletonCQRSES.Query.Domain.Entities;
 using dEz.SkeletonCQRSES.Query.Domain.Repositories;
+using dEz.SkeletonCQRSES.Query.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace dEz.SkeletonCQRSES.Query.Infrastructure.Repositories
 {
     public sealed class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
     {
+        private readonly DatabaseContextFactory _contextFactory;
         /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="repositoryContext"></param>
-        public CompanyRepository(DatabaseContext repositoryContext)
+        public CompanyRepository(DatabaseContext repositoryContext, DatabaseContextFactory contextFactory)
             : base(repositoryContext)
         {
+            _contextFactory = contextFactory;
         }
 
         ///<inheritdoc cref="ICompanyRepository"/>
@@ -34,7 +37,9 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Repositories
         ///<inheritdoc cref="ICompanyRepository"/>
         public async Task AddAsync(Company company)
         {
-            await Create(company);
+            using DatabaseContext context = _contextFactory.CreateDbContext();
+            context.Companies.Add(company);
+           _ = await context.SaveChangesAsync();
             
         }
 

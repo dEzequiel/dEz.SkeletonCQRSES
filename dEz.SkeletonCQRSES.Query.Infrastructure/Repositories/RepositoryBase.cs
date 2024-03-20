@@ -41,7 +41,6 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Repositories
         public async Task Create(T entity)
         {
             DatabaseContext.Set<T>().Add(entity);
-            await DatabaseContext.SaveChangesAsync();
         }
 
         ///<inheritdoc cref="IRepositoryBase{T}"/>
