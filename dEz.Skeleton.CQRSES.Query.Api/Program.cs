@@ -1,4 +1,5 @@
 using Confluent.Kafka;
+using dEz.Skeleton.CQRSES.Query.Api.Extensions;
 using dEz.SkeletonCQRSES.ES.Core.Consumers;
 using dEz.SkeletonCQRSES.Query.Abstraction;
 using dEz.SkeletonCQRSES.Query.Domain.Repositories;
@@ -38,6 +39,7 @@ builder.Services.AddScoped<IEventConsumer, EventConsumer>();
 builder.Services.AddHostedService<ConsumerHostedService>();
 
 var app = builder.Build();
+app.ConfigureExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
