@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dEz.SkeletonCQRSES.Query.Abstraction\dEz.SkeletonCQRSES.Query.Abstraction.csproj" />
+    <ProjectReference Include="..\dEz.SkeletonCQRSES.Query.Domain\dEz.SkeletonCQRSES.Query.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
