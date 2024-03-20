@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dEz.SkeletonCQRSES.Command.Infrastructure
+namespace dEz.SkeletonCQRSES.Command.Infrastructure.Configuration
 {
     /// <summary>
     /// MongoDB configuration.

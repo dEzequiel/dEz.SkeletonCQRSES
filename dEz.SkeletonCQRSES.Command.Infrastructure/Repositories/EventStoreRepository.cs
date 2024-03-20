@@ -1,4 +1,5 @@
-﻿using dEz.SkeletonCQRSES.ES.Core.Domain;
+﻿using dEz.SkeletonCQRSES.Command.Infrastructure.Configuration;
+using dEz.SkeletonCQRSES.ES.Core.Domain;
 using dEz.SkeletonCQRSES.ES.Core.Events;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;

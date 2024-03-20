@@ -37,6 +37,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Query.Abstraction", "dEz.SkeletonCQRSES.Query.Abstraction\dEz.SkeletonCQRSES.Query.Abstraction.csproj", "{E1CC3A5C-C7E2-4A99-A356-5737CC714AF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.SkeletonCQRSES.Query.Infrastructure", "dEz.SkeletonCQRSES.Query.Infrastructure\dEz.SkeletonCQRSES.Query.Infrastructure.csproj", "{5FDB9677-C59D-4FBF-8A7E-663007B78AED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86360A67-699C-49F1-9E93-02BDD8234944} = {86360A67-699C-49F1-9E93-02BDD8234944}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dEz.Skeleton.CQRSES.Api", "dEz.Skeleton.CQRSES.Api\dEz.Skeleton.CQRSES.Api.csproj", "{75BC82D4-414E-44BC-A725-859B775F66E1}"
 	ProjectSection(ProjectDependencies) = postProject

@@ -20,7 +20,7 @@ namespace dEz.SkeletonCQRSES.Shared.DTOs
     /// <param name="Name"></param>
     /// <param name="Address"></param>
     /// <param name="Country"></param>
-    public record CompanyForAdd(string Name, string Address, string CountrY);
+    public record CompanyForAdd(Guid id, string Name, string Address, string CountrY);
 
     /// <summary>
     /// DTO for updating Company.
