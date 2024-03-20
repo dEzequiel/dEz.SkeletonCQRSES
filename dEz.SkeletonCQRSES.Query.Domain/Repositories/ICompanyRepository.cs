@@ -17,7 +17,7 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Repositories
         /// </summary>
         /// <returns>A task representing the asynchronous operation, returning an enumerable collection of
         /// <see cref="Company"/>.</returns>
-        Task<IEnumerable<Company>> GetAllAsync(bool trackChanges);
+        Task<IEnumerable<Company>> GetAllAsync();
 
         /// <summary>
         /// Asynchronously retrieves a company by its ID.
@@ -27,7 +27,7 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Repositories
         /// A task representing the asynchronous operation, returning the <see cref="Company"/> object
         /// with the specified ID, or null if the company is not found.
         /// </returns>
-        Task<Company?> GetAsync(Guid id, bool trackChanges);
+        Task<Company?> GetAsync(Guid id);
 
         /// <summary>
         /// Create company.
@@ -39,5 +39,12 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Repositories
         /// Delete company.
         /// </summary>
         Task DeleteAsync(Company company);
+        
+        /// <summary>
+        /// Update company.
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
+        Task UpdateAsync(Company company);
     }
 }

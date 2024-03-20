@@ -29,61 +29,43 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Services
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task<IEnumerable<CompanyForGet>> GetAllAsync(bool trackChanges)
+        public async Task<IEnumerable<CompanyForGet>> GetAllAsync()
         {
-
-            var companies = await _companyRepository.GetAllAsync(trackChanges);
-
+            var companies = await _companyRepository.GetAllAsync();
             var result = _mapper.Map<IEnumerable<CompanyForGet>>(companies);
-
             return result;
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task<CompanyForGet> GetByIdAsync(Guid id, bool trackChanges)
+        public async Task<CompanyForGet> GetByIdAsync(Guid id)
         {
-
-            var company = await _companyRepository.GetAsync(id, trackChanges);
-
+            var company = await _companyRepository.GetAsync(id);
             var result = _mapper.Map<CompanyForGet>(company);
-
             return result;
         }
 
         ///<inheritdoc cref="ICompanyService"/>
         public async Task<CompanyForGet> AddAsync(CompanyForAdd companyForAdd)
         {
-
             var companyEntity = _mapper.Map<Company>(companyForAdd);
-
             await _companyRepository.AddAsync(companyEntity);
-
             var companyToReturn = _mapper.Map<CompanyForGet>(companyEntity);
-
             return companyToReturn;
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task DeleteAsync(Guid id, bool trackChanges)
+        public async Task DeleteAsync(Guid id)
         {
-
-            var company = await _companyRepository.GetAsync(id, trackChanges);
-
-            _companyRepository.DeleteAsync(company);
-
+            var company = await _companyRepository.GetAsync(id);
+            await _companyRepository.DeleteAsync(company);
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task UpdateAsync(Guid id, CompanyForUpdate companyForUpdate, bool trackChanges)
+        public async Task UpdateAsync(Guid id, CompanyForUpdate companyForUpdate)
         {
-
-            var company = await _companyRepository.GetAsync(id, trackChanges);
-
+            var company = await _companyRepository.GetAsync(id);
             _mapper.Map(companyForUpdate, company);
-            
-
+            await _companyRepository.UpdateAsync(company);
         }
-
-
     }
 }

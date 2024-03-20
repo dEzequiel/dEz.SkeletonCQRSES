@@ -20,14 +20,14 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Repositories
         }
 
         ///<inheritdoc cref="ICompanyRepository"/>
-        public async Task<IEnumerable<Company>> GetAllAsync(bool trackChanges)
+        public async Task<IEnumerable<Company>> GetAllAsync()
         {
             using DatabaseContext context = _contextFactory.CreateDbContext();
             return await context.Companies.AsNoTracking().ToListAsync();
         }
 
         ///<inheritdoc cref="ICompanyRepository"/>
-        public async Task<Company?> GetAsync(Guid id, bool trackChanges)
+        public async Task<Company?> GetAsync(Guid id)
         {
             using DatabaseContext context = _contextFactory.CreateDbContext();
             return await context.Companies
@@ -46,7 +46,7 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Repositories
         public async Task DeleteAsync(Company company)
         {
             using DatabaseContext context = _contextFactory.CreateDbContext();
-            context.Companies.Add(company);
+            context.Companies.Remove(company);
             await context.SaveChangesAsync();
 
         }

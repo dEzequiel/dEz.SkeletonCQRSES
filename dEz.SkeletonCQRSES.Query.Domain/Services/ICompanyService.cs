@@ -18,7 +18,7 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Services
         /// </summary>
         /// <returns>A task representing the asynchronous operation, returning an enumerable collection of
         /// <see cref="CompanyForGet"/>.</returns>
-        Task<IEnumerable<CompanyForGet>> GetAllAsync(bool trackChanges);
+        Task<IEnumerable<CompanyForGet>> GetAllAsync();
 
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Services
         /// <param name="id">The unique identifier of the company.</param>
         /// <returns>A task representing the asynchronous operation, returning the <see cref="CompanyForGet"/>
         /// object or null if not found.</returns>
-        Task<CompanyForGet> GetByIdAsync(Guid id, bool trackChanges);
+        Task<CompanyForGet> GetByIdAsync(Guid id);
 
         /// <summary>
         /// Add new company asynchronously.
@@ -42,7 +42,7 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>A trask representing the asynchronous operation.</returns>
-        Task DeleteAsync(Guid id, bool trackChanges);
+        Task DeleteAsync(Guid id);
 
         /// <summary>
         /// Update company asynchronously.
@@ -51,7 +51,7 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Services
         /// <param name="companyForUpdate"></param>
         /// <param name="trackChanges"></param>
         /// <returns>A trask representing the asynchronous operation.</returns>
-        Task UpdateAsync(Guid id, CompanyForUpdate companyForUpdate, bool trackChanges);
+        Task UpdateAsync(Guid id, CompanyForUpdate companyForUpdate);
 
     }
 }
