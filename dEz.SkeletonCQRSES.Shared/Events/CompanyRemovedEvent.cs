@@ -16,6 +16,5 @@ namespace dEz.SkeletonCQRSES.Shared.Events
         {
         }
 
-        public Guid CompanyId { get; set; }
     }
 }
