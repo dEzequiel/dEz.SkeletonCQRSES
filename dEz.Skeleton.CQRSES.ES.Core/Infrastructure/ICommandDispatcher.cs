@@ -1,26 +1,24 @@
 ﻿using dEz.SkeletonCQRSES.ES.Core.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dEz.SkeletonCQRSES.ES.Core.Infrastructure
 {
+    /// <summary>
+    /// Interface for dispatching commands.
+    /// </summary>
     public interface ICommandDispatcher
     {
         /// <summary>
-        /// RegisterHandler allows to register a command handler method.
+        /// Registers a handler for a specific command.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="handler"></param>
-        void RegisterHandler<T>(Func<T, Task> handler) where T : BaseCommand;
+        /// <typeparam name="TCommand">The type of command to handle.</typeparam>
+        /// <param name="handler">The handler function for the command.</param>
+        void RegisterHandler<TCommand>(Func<TCommand, Task> handler) where TCommand : BaseCommand;
 
         /// <summary>
-        /// SendAsync dispatch the command object to the registered command handler method.
+        /// Asynchronously dispatch a command.
         /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
+        /// <param name="command">The command to send.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         Task SendAsync(BaseCommand command);
     }
 }
