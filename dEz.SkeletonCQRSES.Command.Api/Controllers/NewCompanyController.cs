@@ -23,7 +23,10 @@ namespace dEz.SkeletonCQRSES.Command.Api.Controllers
             _commandDispatcher = commandDispatcher;
         }
 
-        [HttpPost("cqrs")]
+        [HttpPost(Name = "NewCompany")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> NewCompanyAsync([FromBody] AddCompanyCommand command)
         {
             var id = Guid.NewGuid();
@@ -31,7 +34,7 @@ namespace dEz.SkeletonCQRSES.Command.Api.Controllers
 
             await _commandDispatcher.SendAsync(command);
 
-            return StatusCode(StatusCodes.Status201Created, new
+            return CreatedAtRoute("NewCompany", new
             {
                 Id = id,
                 Message = "New company creation request completed successfully!"
