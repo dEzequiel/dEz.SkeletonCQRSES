@@ -68,7 +68,7 @@ namespace dEz.SkeletonCQRSES.Command.Domain.Aggregates
             _active = false;
         }
 
-        public void UpdateCompany(Guid companyId, string name, string address, string country)
+        public void UpdateCompany(Guid id, string name, string address, string country)
         {
             if (!_active)
             {
@@ -78,7 +78,6 @@ namespace dEz.SkeletonCQRSES.Command.Domain.Aggregates
             RaiseEvent(new CompanyUpdatedEvent
             {
                 Id = _id,
-                CompanyId = companyId,
                 Name = name,
                 Address = address,
                 Country = country

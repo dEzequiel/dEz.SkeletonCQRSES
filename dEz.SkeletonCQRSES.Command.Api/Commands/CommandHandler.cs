@@ -32,7 +32,7 @@ namespace dEz.SkeletonCQRSES.Command.Api.Commands
         public async Task HandleAsync(UpdateCompanyCommand command)
         {
             var aggregate = await _eventSourcingHandler.GetByIdAsync(command.Id);
-            aggregate.UpdateCompany(command.CompanyId, command.Name, command.Country, command.Address);
+            aggregate.UpdateCompany(command.Id, command.Name, command.Country, command.Address);
 
             await _eventSourcingHandler.SaveAsync(aggregate);
         }

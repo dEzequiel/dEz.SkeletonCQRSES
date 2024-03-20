@@ -28,5 +28,10 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Handlers
         {
             await _service.DeleteAsync(@event.Id);
         }
+
+        public async Task On(CompanyUpdatedEvent @event)
+        {
+            await _service.UpdateAsync(@event.Id, new CompanyForUpdate(@event.Name, @event.Address, @event.Country));
+        }
     }
 }
