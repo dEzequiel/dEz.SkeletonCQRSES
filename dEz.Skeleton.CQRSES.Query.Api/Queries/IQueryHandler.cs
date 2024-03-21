@@ -12,7 +12,7 @@ namespace dEz.Skeleton.CQRSES.Query.Api.Queries
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        Task<Company> HandleAsync(FindCompanyById query);
+        Task<IEnumerable<Company>> HandleAsync(FindCompanyByIdQuery query);
         
         /// <summary>
         /// Handler for retrieving all companies.

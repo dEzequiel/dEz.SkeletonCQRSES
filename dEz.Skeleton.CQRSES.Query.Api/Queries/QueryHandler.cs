@@ -20,10 +20,10 @@ namespace dEz.Skeleton.CQRSES.Query.Api.Queries
         }
 
         /// <inheritdoc cref="IQueryHandler"/>
-        public async Task<Company> HandleAsync(FindCompanyById query)
+        public async Task<IEnumerable<Company>> HandleAsync(FindCompanyByIdQuery query)
         {
             var company = await _companyService.GetByIdAsync(query.Id);
-            return company;
+            return new List<Company>() { company };
         }
 
         /// <inheritdoc cref="IQueryHandler"/>
