@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace dEz.SkeletonCQRSES.Command.Infrastructure.Dispatchers
 {
+    /// <summary>
+    /// Implementation for dispatching commands.
+    /// </summary>
     public class CommandDispatcher : ICommandDispatcher
     {
         /// <summary>
