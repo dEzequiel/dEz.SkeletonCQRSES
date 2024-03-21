@@ -14,6 +14,7 @@ using dEz.SkeletonCQRSES.Query.Infrastructure.Handlers;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Repositories;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(cfg =>
+{
+    // Space
+    cfg.SwaggerDoc("QueryApi",
+        new OpenApiInfo { Title = "Query Api", Version = "v1" });
+});
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -55,7 +61,11 @@ app.ConfigureExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.ShowCommonExtensions();
+        c.SwaggerEndpoint("QueryApi/swagger.json", "QueryApi");
+    });
 }
 
 app.UseHttpsRedirection();

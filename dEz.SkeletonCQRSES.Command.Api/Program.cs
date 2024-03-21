@@ -18,6 +18,7 @@ using dEz.SkeletonCQRSES.Query.Domain.Services;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Repositories;
 using dEz.SkeletonCQRSES.Query.Infrastructure.Services;
 using dEz.SkeletonCQRSES.Shared.Events;
+using Microsoft.OpenApi.Models;
 using MongoDB.Bson.Serialization;
 
 
@@ -55,7 +56,12 @@ builder.Services.AddSingleton<ICommandDispatcher>(_ => dispatcher);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(cfg =>
+{
+    // Space
+    cfg.SwaggerDoc("CommandApi",
+        new OpenApiInfo { Title = "Command Api", Version = "v1" });
+});
 
 var app = builder.Build();
 
@@ -63,7 +69,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.ShowCommonExtensions();
+        c.SwaggerEndpoint("CommandApi/swagger.json", "CommandApi");
+    });
 }
 
 app.UseHttpsRedirection();

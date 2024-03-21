@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace dEz.SkeletonCQRSES.Command.Api.Controllers
 {
     [Route("api/v1/[controller]")]
+    [ApiExplorerSettings(GroupName = "CommandApi")]
     [ApiController]
     public class DeleteCompanyController : ControllerBase
     {

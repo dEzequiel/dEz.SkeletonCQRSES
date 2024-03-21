@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace dEz.Skeleton.CQRSES.Query.Api.Controllers
 {
     [Route("api/v1/[controller]")]
+    [ApiExplorerSettings(GroupName = "QueryApi")]
     [ApiController]
     public class CompanyLookupController : ControllerBase
     {
