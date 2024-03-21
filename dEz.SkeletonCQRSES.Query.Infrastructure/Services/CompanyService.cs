@@ -29,28 +29,25 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Services
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task<IEnumerable<CompanyForGet>> GetAllAsync()
+        public async Task<IEnumerable<Company>> GetAllAsync()
         {
             var companies = await _companyRepository.GetAllAsync();
-            var result = _mapper.Map<IEnumerable<CompanyForGet>>(companies);
-            return result;
+            return companies;
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task<CompanyForGet> GetByIdAsync(Guid id)
+        public async Task<Company> GetByIdAsync(Guid id)
         {
             var company = await _companyRepository.GetAsync(id);
-            var result = _mapper.Map<CompanyForGet>(company);
-            return result;
+            return company;
         }
 
         ///<inheritdoc cref="ICompanyService"/>
-        public async Task<CompanyForGet> AddAsync(CompanyForAdd companyForAdd)
+        public async Task<Company> AddAsync(CompanyForAdd companyForAdd)
         {
             var companyEntity = _mapper.Map<Company>(companyForAdd);
             await _companyRepository.AddAsync(companyEntity);
-            var companyToReturn = _mapper.Map<CompanyForGet>(companyEntity);
-            return companyToReturn;
+            return companyEntity;
         }
 
         ///<inheritdoc cref="ICompanyService"/>

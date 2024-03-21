@@ -30,7 +30,7 @@ namespace dEz.SkeletonCQRSES.Query.Infrastructure.Repositories
         public async Task<Company?> GetAsync(Guid id)
         {
             using DatabaseContext context = _contextFactory.CreateDbContext();
-            return await context.Companies
+            return await context.Companies.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 

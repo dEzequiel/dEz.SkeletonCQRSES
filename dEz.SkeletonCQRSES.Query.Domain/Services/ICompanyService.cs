@@ -17,25 +17,25 @@ namespace dEz.SkeletonCQRSES.Query.Domain.Services
         /// Gets all companies asynchronously.
         /// </summary>
         /// <returns>A task representing the asynchronous operation, returning an enumerable collection of
-        /// <see cref="CompanyForGet"/>.</returns>
-        Task<IEnumerable<CompanyForGet>> GetAllAsync();
+        /// <see cref="Company"/>.</returns>
+        Task<IEnumerable<Company>> GetAllAsync();
 
 
         /// <summary>
         /// Gets a company by its ID asynchronously.
         /// </summary>
         /// <param name="id">The unique identifier of the company.</param>
-        /// <returns>A task representing the asynchronous operation, returning the <see cref="CompanyForGet"/>
+        /// <returns>A task representing the asynchronous operation, returning the <see cref="Company"/>
         /// object or null if not found.</returns>
-        Task<CompanyForGet> GetByIdAsync(Guid id);
+        Task<Company> GetByIdAsync(Guid id);
 
         /// <summary>
         /// Add new company asynchronously.
         /// </summary>
         /// <param name="companyForAdd"></param>
-        /// <returns>A task representing the asynchronous operation, returning the <see cref="CompanyForGet"/>
+        /// <returns>A task representing the asynchronous operation, returning the <see cref="Company"/>
         /// object.</returns>
-        Task<CompanyForGet> AddAsync(CompanyForAdd companyForAdd);
+        Task<Company> AddAsync(CompanyForAdd companyForAdd);
 
         /// <summary>
         /// Delete company asynchronously.
